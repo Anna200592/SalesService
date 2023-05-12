@@ -11,30 +11,11 @@ public class StatsService {
     }
 
     public int getAverage(int[] sales) {
-        int average = getSum(sales)/sales.length;
-        return average;
-    }
-
-    public int underAverage(int[] sales) {
-        int unAverage = 0;
-        for (int sale : sales) {
-            if (sale < getAverage(sales)) {
-                unAverage+=1;
-            }
+        if (sales.length > 0) {
+            return getSum(sales) / sales.length;
         }
-        return unAverage;
+        return 0;
     }
-
-    public int overAverage(int[] sales) {
-        int overAverage = 0;
-        for (int sale : sales) {
-            if (sale > getAverage(sales)) {
-                overAverage+=1;
-            }
-        }
-        return overAverage;
-    }
-
 
     public int maxSales(int[] sales) {
         int maxMonth = 0;
@@ -55,6 +36,28 @@ public class StatsService {
             }
         }
         return minMonth + 1;
+    }
+
+    public int underAverage(int[] sales) {
+        int unAverage = 0;
+        int avg = getAverage(sales);
+        for (int sale : sales) {
+            if (sale < avg) {
+                unAverage++;
+            }
+        }
+        return unAverage;
+    }
+
+    public int overAverage(int[] sales) {
+        int overAverage = 0;
+        int avg = getAverage(sales);
+        for (int sale : sales) {
+            if (sale > avg) {
+                overAverage++;
+            }
+        }
+        return overAverage;
     }
 
 }

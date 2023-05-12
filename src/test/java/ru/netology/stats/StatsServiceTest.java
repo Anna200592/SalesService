@@ -40,7 +40,6 @@ public class StatsServiceTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
     @Test
     public void shouldFindMaxMonth() {
         StatsService service = new StatsService();
@@ -51,7 +50,6 @@ public class StatsServiceTest {
         int actualMonth = service.maxSales(sales);
 
         Assertions.assertEquals(expectedMonth, actualMonth);
-
     }
 
     @Test
@@ -66,5 +64,4 @@ public class StatsServiceTest {
         Assertions.assertEquals(expectedMonth, actualMonth);
 
     }
-
 }
